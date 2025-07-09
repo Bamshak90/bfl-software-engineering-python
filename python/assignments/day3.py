@@ -27,19 +27,20 @@ Using the same secret_word:
 '''
 
 #Question 1
-my_age = 20  # Replace with your actual age
+my_age = 22
 pi = 3.14159
-magic_number = (my_age * 3 + pi) % 7
+magic_number = (((my_age) * 3) + pi) % 7
 print("Magic Number:", magic_number)
-print("Type of magic_number:", type(magic_number))
+print(type(magic_number))
 
 #question 2
+
 secret_word = "PythonIsAmazing"
 
 print("First 6 characters:", secret_word[:6])
 
-#negative indexing
 
+#negative indexing
 print( secret_word[-7])
 print( secret_word[-6])
 print(secret_word[-5])
