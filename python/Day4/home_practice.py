@@ -30,3 +30,10 @@ print("Valid ID:  \t", record[-1])
 # secret message to decode for an agent
 
 
+message = "Pythonista"
+
+word_lenght = len(message)//2
+first_half = message[:word_lenght]
+second_half = message[word_lenght:]
+print(first_half)
+print(second_half)
