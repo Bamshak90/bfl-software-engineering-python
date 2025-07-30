@@ -4,8 +4,10 @@ print(fruits)
 
 response = { "success": True,
             "message": "Welcome",
-             "email": "mark@gmail.com",
-            "username": "Mark"
+             "data": ["mark@gmail.com",
+                        "Mark"
+                       ]
 }
 
-print(response)
+
+print(response["data"])
