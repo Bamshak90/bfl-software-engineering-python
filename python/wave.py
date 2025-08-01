@@ -70,7 +70,7 @@ print("i will let you know when it ready in {} mins {}".format(time_to_micro_wav
 
 time.sleep(time_to_micro_wave * 60)
 
-print("Congratulations {} your food is ready".format(name))
+print("Congratulations {} your food is ready at {}".format(name, time_to_micro_wave))
 
 
 print(customer)

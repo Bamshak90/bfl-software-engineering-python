@@ -1,6 +1,6 @@
 import  pprint; 
 response = {
-    "success": True,
+    "success": True, 
     "message": "Login successful",
     "data": [
         "mark@gmail"
@@ -8,4 +8,4 @@ response = {
     ]
 }
 
-pprint.pprint(response)
+pprint.pprint(response["success"])
