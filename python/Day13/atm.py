@@ -20,7 +20,7 @@ balance = account_balance - withdrawal
 
 if withdrawal > 0 and withdrawal <= account_balance:
     if withdrawal % 1000 == 0:
-        print(f"paid, Your remaining balance is ${balance}")
+        print(f"You have been paid the sum of ${withdrawal:,.2f} \nYour remaining balance is ${balance:,.2f}")
     else:
         print("invalid amount")
 
