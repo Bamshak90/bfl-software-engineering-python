@@ -130,7 +130,10 @@ output = """
    *---------------------------------------*
 
 """
-command = input(output)
+
+print(output)
+
+command = input("Enter command: ").lower()
 
 
 # Your implementation here...
@@ -147,7 +150,7 @@ if command == "login":
             print("Password match")
             print("Login successful")
         else:
-            print("Password does not match")
+            print("The Password does not match")
     else:
         print("Username not found")
         print("Try registering")
@@ -178,6 +181,7 @@ elif command == "register":
                 users_db[username]["balance"] -= verification_amount
                 users_db[username]["is_verified"] = True
                 print("Verification successful")
+                print(f"your new balance is {users_db[username]["balance"]}")
             else:
                 print("insufficient balance fee for verification")
         else:
