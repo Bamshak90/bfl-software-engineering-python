@@ -14,6 +14,11 @@ user = int(input("enter age: "))
 for age in students:
     if user == students[age]["age"]:
         print(students[age])
-    else:
         continue
 
+
+
+for i in range(1, 13):
+    for j in range(1, 13):
+        print(f"{i} x {j} = {i*j}",end="\t")
+    print()
