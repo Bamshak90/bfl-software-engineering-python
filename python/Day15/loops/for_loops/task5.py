@@ -1,4 +1,4 @@
-'''
+
 flag = False
 
 for number in range(1,10):
@@ -10,7 +10,7 @@ if flag:
 else:
     print("number not found")
 
-'''
+
 
 names = ["Tom", "Jerry", "Mimi", "val"]
 
@@ -18,7 +18,7 @@ names = ["Tom", "Jerry", "Mimi", "val"]
 user_name = input("Enter name: ").capitalize()
 flag = False
 for name in names:
-    if user_name in names:
+    if user_name == name:
         flag = True
         break
 

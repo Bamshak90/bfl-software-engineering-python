@@ -1,4 +1,5 @@
 
+
 students = {
     "S001": {"name": "John Doe", "age": 20, "score": 85},
     "S002": {"name": "Jane Smith", "age": 19, "score": 92},
@@ -7,10 +8,12 @@ students = {
 
 target_score = int(input("Enter score to search: "))
 
-# TODO: loop with .items() to check each student's score
-# If match → print their name
-# If no matches → print message
-#
+found = False
 for student_id, info in students.items():
-    if target_score == info["score"] > 80:
-        print(f"{student_id['name']}, {info['score']}")
+    if info["score"] == target_score and info["score"] > 80:
+        print(f"{info['name']}, {info['score']}")
+        found = True
+
+if not found:
+    print("No students match the criteria.")
+
