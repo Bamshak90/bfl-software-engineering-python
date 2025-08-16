@@ -105,7 +105,7 @@ while access_status:
                 }
                 if choice in borrow_airtime_map:
                     amount, repay_amount = borrow_airtime_map[choice]
-                    balance += amount   # ✅ FIXED: add borrowed airtime
+                    balance += amount   
                     print(f"✅ You have borrowed ₦{amount}. You must repay ₦{repay_amount}.")
                     print(f"Your new balance is ₦{balance:,}")
                 elif choice == 0:
@@ -129,7 +129,7 @@ while access_status:
                 }
                 if choice in borrow_data_map:
                     amount, repay_amount, size = borrow_data_map[choice]
-                    balance += amount   # ✅ FIXED: add borrowed data value
+                    balance += amount  
                     print(f"✅ You have borrowed {size} data (worth ₦{amount}). You must repay ₦{repay_amount}.")
                     print(f"Your new balance is ₦{balance:,}")
                 elif choice == 0:
