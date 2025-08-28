@@ -111,19 +111,4 @@ def total_sales():
   print(total)
   return total
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 start()
