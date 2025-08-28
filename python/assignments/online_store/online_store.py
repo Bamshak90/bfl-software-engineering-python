@@ -23,6 +23,10 @@ Welcome to our online store
 ''')
     
     user_choice = int(input("Choose an option: "))
+
+    if user_choice == 7:
+      print("Thank you for checking in")
+      break
     call_function(user_choice)
 def call_function(user_choice):
   if user_choice == 1:
@@ -33,7 +37,10 @@ def call_function(user_choice):
     sell_product()
   elif user_choice == 4:
     display_store()
-
+  elif user_choice == 5:
+    most_expensive_item(store)
+  elif user_choice == 6:
+    total_sales()
 
 
 
@@ -82,9 +89,28 @@ def display_store():
   print(store)
   return store
 
-def most_expensive_item():
-  
+def most_expensive_item(store):
+    total = 0
+    expensive_item = None
 
+    for item in store:
+        price = store[item]["price"] 
+
+        if price > total: 
+            total = price
+            expensive_item = item 
+    print(expensive_item, total) 
+    return total
+
+def total_sales():
+  total = 0
+  for item in store:
+    price = store[item]["price"]
+    quantity = store[item]["quantity"]
+    total += price * quantity
+  print(total)
+  return total
+  
 
 
 
