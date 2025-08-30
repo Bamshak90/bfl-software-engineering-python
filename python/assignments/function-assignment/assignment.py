@@ -250,7 +250,7 @@ def task16_factorial(n):
     for num in range(1, n + 1):
         factorial *= num
     return factorial
-total = task16_factorial(50)
+total = task16_factorial(5)
 print(total)
 
 
@@ -425,7 +425,12 @@ def task26_calculate_bmi(weight, height):
     Formula: BMI = weight / (height^2)
     Round the result to 2 decimal places.
     """
-    pass
+    if height <= 0:
+        return None
+    bmi = weight / (height **2 )
+    return round(bmi)
+total = task26_calculate_bmi(2,5)
+print(total)
 
 
 # 27
@@ -436,7 +441,11 @@ def task27_discounted_price(price, discount_percent):
     and returns the final price after discount.
     Example: discounted_price(1000, 20) → 800
     """
-    pass
+    discount = (discount_percent / 100) * price
+    fee_to_pay =  price - discount_percent
+    return round(fee_to_pay)
+total = task27_discounted_price(1000, 20)
+print(total)
 
 
 # 28
@@ -450,8 +459,16 @@ def task28_movie_ticket_price(age):
     - Age >= 60: 600
     Return the ticket price.
     """
-    pass
-
+    if age < 12:
+        return 500
+    elif age < 18:
+        return 700
+    elif age < 60:
+        return 1000
+    else:
+        return 600
+total = task28_movie_ticket_price(8)
+print(total)
 
 # 29
 def task29_shopping_total(prices):
@@ -460,7 +477,12 @@ def task29_shopping_total(prices):
     Write a function that accepts a list of item prices
     and returns the total cost of all items.
     """
-    pass
+    total = 0
+    for price in prices:
+        total += price
+    return total
+total = task29_shopping_total([2,3,4,6,7,8,10])
+print(total)
 
 
 # 30
@@ -471,8 +493,10 @@ def task30_convert_to_seconds(hours, minutes, seconds):
     and converts the entire time to total seconds.
     Example: 1h 1m 1s → 3661 seconds
     """
-    pass
-
+    total_seconds = (hours * 3600) + (minutes * 60) + seconds
+    return total_seconds
+total = task30_convert_to_seconds(1,1,1)
+print(total)
 
 # 31
 def task31_find_median(numbers):
@@ -482,7 +506,15 @@ def task31_find_median(numbers):
     and returns the median value.
     (Hint: Sort the list first, then handle odd/even length cases.)
     """
-    pass
+    if not numbers:
+        return None
+    nums = sorted(numbers)
+    n = len(nums)
+    mid = n // 2
+    if n % 2 == 1:
+        return nums[mid]
+    else:
+        return (nums[mid - 1] + nums[mid]) / 2
 
 
 # 32
@@ -494,8 +526,13 @@ def task32_parking_fee(hours):
     - Every additional hour: 100 Naira
     Example: parking_fee(5) → 200 + 3*100 = 500
     """
-    pass
-
+    if hours <= 0:
+        return 0
+    if hours <= 2:
+        return 200
+    return 200 + (hours - 2) * 100
+total = task32_parking_fee(5)
+print(total)
 
 # 33
 def task33_word_count(sentence):
@@ -505,8 +542,10 @@ def task33_word_count(sentence):
     and returns the number of words in it.
     Example: "I love Python" → 3
     """
-    pass
-
+    words = sentence.split()
+    return len(words)
+total = task33_word_count("I am a happy boy")
+print(total)
 
 # 34
 def task34_capitalize_names(names):
@@ -516,7 +555,10 @@ def task34_capitalize_names(names):
     and returns a new list with each name capitalized.
     Example: ["john", "mary"] → ["John", "Mary"]
     """
-    pass
+
+    return [name.capitalize() for name in names]
+total = task34_capitalize_names(["nary", "john"])
+print(total)
 
 
 # 35
@@ -526,7 +568,12 @@ def task35_student_pass_fail(score):
     Write a function that accepts a student's score
     and returns "Pass" if score >= 50, otherwise "Fail".
     """
-    pass
+    if score >= 50:
+        return "Pass"
+    else:
+        return "Fail"
+total = task35_student_pass_fail(60)
+print(total)
 
 
 # 36
