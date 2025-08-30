@@ -343,7 +343,11 @@ def task22_string_length(text):
     Write a function that accepts a string
     and returns its length without using len().
     """
-    pass
+    count = 0
+    for _ in text:
+        count += 1
+    return count
+print(task22_string_length("mark"))
 
 
 # 23
@@ -359,7 +363,23 @@ def task23_grade_student(score):
     E: 30–39
     F: 0–29
     """
-    pass
+    if score < 0 or score > 100:
+        return "Invalid Score"
+    if 70 <= score <= 100:
+        return "A"
+    elif 60 <= score <= 69:
+        return "B"
+    elif 50 <= score <= 59:
+        return "C"
+    elif 40 <= score <= 49:
+        return "D"
+    elif 30 <= score <= 39:
+        return "E"
+    else:
+        return "F"
+    
+total = task23_grade_student(90)
+print(total)
 
 
 # 24
@@ -370,10 +390,13 @@ def task24_swap_values(a, b):
     and returns them swapped.
     Example: swap_values(3, 7) → (7, 3)
     """
-    pass
+    swap = b,a
+    return swap
+print(task24_swap_values(2,3))
 
 
 # 25
+counter = 0
 def task25_scope_counter():
     """
     Task 25:
@@ -382,7 +405,11 @@ def task25_scope_counter():
     the counter by 1 and print the current count.
     This demonstrates modifying global variables inside functions.
     """
-    pass
+    global counter
+    counter += 1
+    print(counter)
+task25_scope_counter()
+
 
 
 # ================================
