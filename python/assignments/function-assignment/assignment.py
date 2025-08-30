@@ -174,10 +174,19 @@ def task12_is_prime(n):
     Write a function that accepts a number as a parameter
     and returns True if the number is prime, otherwise False.
     """
-    pass
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
+total = task12_is_prime(5)
+print(total)
 
 # 13
+
+trail = "i am global"
 def task13_scope_demo():
     """
     Task 13:
@@ -186,7 +195,10 @@ def task13_scope_demo():
     create a local variable with the same name. Print both
     to show how local and global scope works.
     """
-    pass
+    local = "i am local"
+    print(local)
+task13_scope_demo()
+print(trail)
 
 
 # 14
@@ -197,7 +209,12 @@ def task14_sum_list(numbers):
     and returns the sum of all the elements in the list.
     Do not use Python's built-in sum() function.
     """
-    pass
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+total = task14_sum_list([2,3,4,5,6,7,8,9,90,1])
+print(total)
 
 
 # 15
@@ -208,7 +225,17 @@ def task15_average_of_list(numbers):
     and returns the average.
     Formula: average = sum of numbers / count of numbers
     """
-    pass
+    count_of_numbers = len(numbers)
+    sum_of_numbers = 0
+    for num in numbers:
+        sum_of_numbers += num
+    average = sum_of_numbers / count_of_numbers
+    return average
+total = task15_average_of_list([2,3,5,10])
+print(total)
+
+
+
 
 
 # 16
@@ -219,7 +246,12 @@ def task16_factorial(n):
     using a loop (not recursion).
     Example: factorial(5) → 120
     """
-    pass
+    factorial = 1
+    for num in range(1, n + 1):
+        factorial *= num
+    return factorial
+total = task16_factorial(50)
+print(total)
 
 
 # 17
@@ -230,8 +262,10 @@ def task17_palindrome_check(word):
     A palindrome reads the same forwards and backwards.
     Example: palindrome_check("madam") → True
     """
-    pass
-
+    w = word.lower()
+    return w == w[::-1]
+total = task17_palindrome_check("madam")
+print(total)
 
 # 18
 def task18_convert_minutes_to_hours(minutes):
@@ -241,7 +275,11 @@ def task18_convert_minutes_to_hours(minutes):
     and converts it into hours and minutes.
     Example: 130 minutes → "2 hour(s) 10 minute(s)"
     """
-    pass
+    hours = minutes // 60
+    minutes = minutes % 60
+    total = f"the time is {hours} hour(s) {minutes} minute)s"
+    return total
+print(task18_convert_minutes_to_hours(130))
 
 
 # 19
@@ -252,7 +290,13 @@ def task19_find_min(numbers):
     and returns the smallest number.
     Do not use Python's built-in min() function.
     """
-    pass
+    min = numbers[0]
+    for num in numbers:
+        if num < min:
+            min = num
+    return min
+print(task19_find_min([2,3,4,5,6,7,8]))
+    
 
 
 # 20
@@ -262,7 +306,10 @@ def task20_simple_interest(principal, rate, time):
     Write a function that calculates simple interest.
     Formula: (principal * rate * time) / 100
     """
-    pass
+    interest = (principal * rate * time) / 100
+    return interest
+total = task20_simple_interest(20,13,7)
+print(total)
 
 
 # 21
@@ -274,7 +321,19 @@ def task21_calculator(a, b, operation):
     and return the result.
     Example: calculator(4, 2, "+") → 6
     """
-    pass
+    if operation == "+":
+        return a + b
+    elif operation == "-":
+        return a - b
+    elif operation == "*":
+        return a * b
+    elif operation == "/":
+        return a / b
+    else:
+        return f"invalid operation"
+    
+total = task21_calculator(2,5,"+")
+print(total)
 
 
 # 22
