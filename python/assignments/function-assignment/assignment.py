@@ -680,7 +680,12 @@ def task41_shirt_order(quantity, price_per_shirt, discount_threshold=10, discoun
     - If quantity >= discount_threshold, apply discount_rate.
     Example: shirt_order(12, 2000) → discounted price
     """
-    pass
+    total = quantity * price_per_shirt
+    if quantity >= discount_threshold:
+        total = total * (1 - discount_rate)
+    return round(total, 2)
+total = task41_shirt_order(20,2000)
+print(total)
 
 
 # 42
@@ -701,8 +706,14 @@ def task43_student_average(scores):
     and returns the student's average score.
     Example: {"math": 80, "english": 70} → 75.0
     """
-    pass
-
+    if not scores:
+        return 0.0
+    total = 0
+    for subject in scores:
+        total += scores[subject]
+    return total / len(scores)
+total = task43_student_average({"math": 80, "english": 70})
+print(total)
 
 # 44
 def task44_calculate_age(current_year, birth_year):
@@ -712,8 +723,10 @@ def task44_calculate_age(current_year, birth_year):
     and returns the age.
     Example: calculate_age(2025, 2000) → 25
     """
-    pass
-
+    actual_age = current_year - birth_year
+    return actual_age
+total = task44_calculate_age(2025,1890)
+print(total)
 
 # 45
 def task45_salary_after_tax(salary, tax_rate=0.15):
@@ -722,8 +735,10 @@ def task45_salary_after_tax(salary, tax_rate=0.15):
     Write a function that calculates net salary after deducting tax.
     Example: salary_after_tax(100000) → 85000
     """
-    pass
-
+    total_salary = salary * (1 - tax_rate)
+    return total_salary
+total = task45_salary_after_tax(90000)
+print(total)
 
 # 46
 def task46_water_bill(units):
@@ -734,7 +749,21 @@ def task46_water_bill(units):
     - Next 20 units → 75 per unit
     - Beyond 50 units → 100 per unit
     """
-    pass
+    if units <= 0:
+        return 0.0
+    bill = 0
+    if units <= 30:
+        bill += units * 50
+    elif units <= 50:
+        bill += 30 * 50
+        bill += (units - 30) * 75
+    else:
+        bill += 30 * 50
+        bill += 20 * 75
+        bill += (units - 50) * 100
+    return bill
+total = task46_water_bill(50)
+print(total)
 
 
 # 47
@@ -745,8 +774,18 @@ def task47_find_longest_word(sentence):
     and returns the longest word in it.
     Example: "I love programming" → "programming"
     """
-    pass
+    if not sentence:
+        return ""
 
+    words = sentence.split()
+    longest = words[0]
+
+    for w in words[1:]:
+        if len(w) > len(longest):
+            longest = w
+    return longest
+
+print(task47_find_longest_word("I love programming"))
 
 # 48
 def task48_banking_withdraw(balance, withdraw_amount):
@@ -756,8 +795,11 @@ def task48_banking_withdraw(balance, withdraw_amount):
     - If withdraw_amount <= balance, return new balance
     - Otherwise return "Insufficient funds"
     """
-    pass
-
+    if withdraw_amount <= balance:
+        return balance - withdraw_amount
+    return "Insufficient funds"
+total = task48_banking_withdraw(20000,5000)
+print(total)
 
 # 49
 def task49_calculate_grade_point(score):
@@ -771,7 +813,21 @@ def task49_calculate_grade_point(score):
     - 40–44 → 1
     - <40 → 0
     """
-    pass
+    if score < 0 or score > 100:
+        return None
+    if score >= 70:
+        return 5
+    elif score >= 60:
+        return 4
+    elif score >= 50:
+        return 3
+    elif score >= 45:
+        return 2
+    elif score >= 40:
+        return 1
+    else:
+        return 0
+total = task49_calculate_grade_point(90)
 
 
 # 50
@@ -784,4 +840,13 @@ def task50_weather_advice(temperature, raining):
     - Else if temperature < 15 → "Wear a jacket"
     - Else → "Weather is fine"
     """
-    pass
+    if raining:
+        return "Take an umbrella"
+    elif temperature > 30:
+        return "Wear light clothes"
+    elif temperature < 15:
+        return "Wear a jacket"
+    else:
+        return "Weather is fine"
+total = task50_weather_advice(40,"raining")
+print(total)
