@@ -586,8 +586,21 @@ def task36_calculate_fine(days_late):
     - Beyond 10 days: 100 per day
     Example: calculate_fine(7) → 5*20 + 2*50 = 200
     """
-    pass
-
+    if days_late <= 0:
+        return 0
+    fine = 0
+    if days_late <= 5:
+        fine += days_late * 20
+    elif days_late <= 10:
+        fine += 5 * 20
+        fine += (days_late - 5) * 50
+    else:
+        fine += 5 * 20
+        fine += 5 * 50
+        fine += (days_late - 10) * 100
+    return fine
+total = task36_calculate_fine(7)
+print(total)
 
 # 37
 def task37_convert_currency(amount, rate):
@@ -597,7 +610,10 @@ def task37_convert_currency(amount, rate):
     using a given conversion rate.
     Example: convert_currency(100, 1500) → 150000
     """
-    pass
+    convert = amount * rate
+    return convert
+total = task37_convert_currency(100,1500)
+print(total)
 
 
 # 38
@@ -607,7 +623,10 @@ def task38_gas_station_bill(liters, price_per_liter):
     Write a function that accepts the number of liters purchased
     and the price per liter, then returns the total cost.
     """
-    pass
+    total = liters * price_per_liter
+    return total
+total = task38_gas_station_bill(6,1500)
+print(total)
 
 
 # 39
@@ -619,7 +638,12 @@ def task39_is_leap_year(year):
     Rule: Year divisible by 4 → leap year, but divisible by 100 → not leap,
     unless divisible by 400.
     """
-    pass
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    return year % 4 == 0
+total = task39_is_leap_year(2020)
 
 
 # 40
@@ -632,8 +656,21 @@ def task40_password_strength(password):
     - Contains at least one uppercase letter
     Return "Strong" if all conditions are met, otherwise "Weak".
     """
-    pass
+    length = len(password)
 
+    if length <= 6:
+        return "weak"
+    if length >= 6 and length <= 10:
+        return "medium"
+    has_letter = any(c.isalpha() for c in password)
+    has_digit = any(c.isdigit() for c in password)
+    
+    if has_letter and has_digit:
+        return "strong"
+    else:
+        return "medium"
+total = task40_password_strength("Methysekag1")
+print(total)
 
 # 41
 def task41_shirt_order(quantity, price_per_shirt, discount_threshold=10, discount_rate=0.1):
