@@ -34,11 +34,6 @@ register_student("S1", "Mark")
 register_student("S2", "Nan")
 register_student("S3", "MP")
 
-def mark_present(student_ids):
-    """Mark multiple students as present for today."""
-    today = str(datetime.date.today())
-    # implement logic
-    pass
 
 def mark_absent(student_ids):
     """Mark multiple students as absent for today."""
