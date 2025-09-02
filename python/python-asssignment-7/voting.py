@@ -66,12 +66,12 @@ def election_result():
 
 
 
-print(register_candidate("Alice", "Independent", "North"))
+print(register_candidate("Mark", "Independent", "North"))
 print(register_candidate("Bob", "Independent", "North"))
-print(register_candidate("Charlie", "Green", "West"))
+print(register_candidate("MP", "Green", "West"))
 
-print(cast_vote("V1", "Alice"))
+print(cast_vote("V1", "Mark"))
 print(cast_vote("V2", "Bob"))
-print(cast_vote("V3", "Alice"))
+print(cast_vote("V3", "MP"))
 
 print(election_result())
