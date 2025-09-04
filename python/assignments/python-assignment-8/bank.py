@@ -51,8 +51,10 @@ class BankAccount:
     else:
         print(f"{name}, you are not a customer")
 
+
+
 account = BankAccount()
-account.register_customer("Tory", 1000)
-account.deposit_amount("Tory", 10000)
-account.withdraw_amount("Tory", 100000)
-account.check_balance("Tory")
+account.register_customer("Mark", 1000)
+account.deposit_amount("Mark", 10000)
+account.withdraw_amount("Mark", 100000)
+account.check_balance("Mark")
