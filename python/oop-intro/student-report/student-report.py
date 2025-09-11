@@ -18,6 +18,7 @@ Calculating the average (or total).
 Getting the grade (e.g., A, B, C, F based on score).
 
 Displaying the full report card.
+
 '''
 
 
@@ -65,13 +66,10 @@ class Student:
 
 student1 = Student("Mark", "S101")
 
-
-
 student1.add_subject("Math", 85)
 student1.add_subject("English", 70)
 student1.add_subject("Science", 92)
 student1.add_subject("History", 65)
-
 
 student1.update_marks("English", 80)   
 student1.update_marks("Art", 50)     
