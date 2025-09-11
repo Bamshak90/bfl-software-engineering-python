@@ -34,7 +34,8 @@ class Bank:
         self.customers[account_number] = {
           "name": name,
           "account_type": account_type,
-          "balance": 0
+          "balance": 0,
+          "Frozen": False
         }
         return account_number
 
@@ -48,16 +49,27 @@ class Bank:
     else:
       return f"{account_number} does not exist"
 
-  def withdraw(self,account_number,amount):
+  def withdraw(self, account_number, amount):
     if account_number in self.customers:
-      if self.customers[account_number]["balance"] > 0:
-        if self.customers[account_number]["balance"] > amount:
-          self.customers[account_number]["balance"] -= amount
-          return f"You have withdrawn {amount} from {account_number}"
+        if amount <= 0:
+            return "Withdrawal amount must be greater than 0"
+        
+        if self.customers[account_number]["balance"] >= amount:
+            self.customers[account_number]["balance"] -= amount
+            return f"You have withdrawn {amount} from {account_number}. New balance: {self.customers[account_number]['balance']}"
         else:
-          return "insufficient funds"
+            return "Insufficient funds"
     else:
-      return f"{account_number} does not exist"
+        return f"{account_number} does not exist"
+    
+  def check_balance(self, account_number):
+    if account_number in self.customers:
+        balance = self.customers[account_number]["balance"]
+        return f"Balance for {account_number}: {balance}"
+    else:
+        return f"{account_number} does not exist"
+
+
 
 
 bank = Bank()
@@ -70,6 +82,9 @@ print(bank.deposit(acc2, -100))
 print(bank.deposit(123456, 200))
 
 print(bank.withdraw(acc1, 40000))
+
+print(bank.check_balance(acc1))  
+print(bank.check_balance(12345)) 
 
 print("Accounts created:")
 print(bank.customers)
