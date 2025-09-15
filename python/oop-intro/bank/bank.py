@@ -68,6 +68,11 @@ class Bank:
         return f"Balance for {account_number}: {balance}"
     else:
         return f"{account_number} does not exist"
+    
+  def transfer(self, from_account, to_account):
+     if from_account in self.customers:
+        if self.customers[account_number]["balance"] > 0:
+           
 
 
 
